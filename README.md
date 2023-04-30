@@ -22,3 +22,15 @@ Components:
     I found none of the examples worked until I set the baud rate at 9600.
     
     In Adafruit BME280 examples, I found I had to set the address like so: status = bme.begin(0x76)
+
+Version 000 is the first working version
+
+Version 001 adds the ability to write the data to a Google sheets file. This method was copied from here
+
+https://github.com/StorageB/Google-Sheets-Logging
+
+It uses the HTTPSRedirect library found here:
+
+https://github.com/electronicsguy/HTTPSRedirect
+
+It connects to the internet using a hotspot on a cell phone

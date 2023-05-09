@@ -34,3 +34,10 @@ It uses the HTTPSRedirect library found here:
 https://github.com/electronicsguy/HTTPSRedirect
 
 It connects to the internet using a hotspot on a cell phone
+
+
+## Parts List
+- ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 
+- Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055 
+- GPS Module GPS NEO-6M
+- BME280 Digital Temperature Humidity Sensor

@@ -16,7 +16,12 @@ Components:
     
   Environment:
     BME280
+  
+  microSD card module:
+    Adafruit MicroSD Card Breakout Board
     
+  Display:
+    0.96 Inch Blue Yellow OLED Display Module I2C 
     
  Notes:
  

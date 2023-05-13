@@ -40,3 +40,6 @@ Version 005 adds the ability to write the data to a microSD card. It connects to
 - Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055 
 - GPS Module GPS NEO-6M
 - BME280 Digital Temperature Humidity Sensor
+
+
+![alt text](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)

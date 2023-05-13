@@ -19,7 +19,6 @@
    This version adds a dash function using an async web server
 
    the compass function from version 1.3 does not work
-   the web server dash function from version 1.4 does not work
    this version starts with version 1.3 and adds async web server
 
    includes all changes from 1.2 below:
@@ -38,8 +37,8 @@
 */
 
 // add your wifi credentials below
-const char *ssid = "Trakboxhot";
-const char *password = "cxiiqfrvhchzafh";
+const char *ssid = "**************";
+const char *password = "**************";
 // no edits below
 
 #define SCREEN_WIDTH 128 // OLED display width, in pixels

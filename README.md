@@ -1,7 +1,11 @@
 # TRAKBOX
-Data acquisition system 
+Racing Data Acquisition system 
 
-TrakBox is a data acquisition system built from inexpensive hobbyist level development boards. The TrakBox is rigidly mounted inside a competition vehicle and used to evaluate the performance of the vehicle. The system runs on a microcomputer. The microcomputer used is a LoLin style NodeMCU type esp8266. The system includes a GPS sensor, an inertial measurement unit and an environmental sensor. There is also a small OLED display and a microSD card module. The microSD card is used to write the output from the sensors to a comma delimited text file which can be import into speadsheet for viewing. TrakBox includes a web server that can run a dash display on a cell phone. The inertial measurement unit has a 3 axis accelerometer, a 3 axis Gyroscope, a 3 axis Magnetometer and an onboard co-processor to fuse the sensor data.
+### Brief
+TrakBox is a data acquisition system built from inexpensive hobbyist level development boards. The TrakBox is rigidly mounted inside a competition vehicle and used to evaluate the performance of the vehicle. The system runs on a microcomputer. The system includes a GPS sensor, an inertial measurement unit and an environmental sensor. There is also a real time clock, a small OLED display and a microSD card module. TrakBox includes a web server that can run a dash display on a cell phone.
+
+### In Depth
+ The microcomputer used is a LoLin style NodeMCU type esp8266. The inertial measurement unit has a 3 axis accelerometer, a 3 axis Gyroscope, a 3 axis Magnetometer and an onboard co-processor to fuse the sensor data. The microSD card is used to write the output from the sensors to a comma delimited text file which can be import into speadsheet for viewing. The real time clock has a battery backup and syncs with a NTP server on start up. 
     
     
  Notes:

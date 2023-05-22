@@ -2,7 +2,7 @@
 
   Model: Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055
   
-      https://www.adafruit.com/product/2472
+      [web link](https://www.adafruit.com/product/2472)
   
       Manufacturer Product ID: 2472
       
@@ -17,4 +17,4 @@
       -Gravity Vector (100Hz) - Three axis of gravitational acceleration (minus any movement) in m/s^2
       -Temperature (1Hz) - Ambient temperature in degrees celsius
       
-! [dimensional digram] https://cdn-learn.adafruit.com/assets/assets/000/024/613/medium640/sensors_BNO055_Dim.png?1429643231
+![dimensional digram](https://cdn-learn.adafruit.com/assets/assets/000/024/613/medium640/sensors_BNO055_Dim.png?1429643231)

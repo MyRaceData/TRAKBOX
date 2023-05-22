@@ -35,18 +35,18 @@ Adds the ability to write the data to a microSD card. It connects to the interne
 First working version. All sensors running with no ability to record data
 
 ## Libraries Used
-- Wire.h
+- Wire.h                https://github.com/esp8266/Arduino                      GPL licence
 - Adafruit_GFX.h        https://github.com/adafruit/Adafruit-GFX-Library        BSD licence
 - Adafruit_SSD1306.h    https://github.com/adafruit/Adafruit_SSD1306            BSD licence
 - Adafruit_Sensor.h     https://github.com/adafruit/Adafruit_Sensor             BSD licence
 - Adafruit_BME280.h     https://github.com/adafruit/Adafruit_BME280_Library     BSD license
 - TinyGPSPlus.h         https://github.com/mikalhart/TinyGPSPlus                GNU License
-- SoftwareSerial.h
+- SoftwareSerial.h      https://github.com/plerup/espsoftwareserial             GPL licence
 - Adafruit_BNO055.h     https://github.com/adafruit/Adafruit_BNO055             BSD license
 - utility/imumaths.h
 - SdFat.h               https://github.com/greiman/SdFat                        MIT licence
 - Arduino.h             https://github.com/esp8266/Arduino                      GNU licence
-- ESP8266WiFi.h
+- ESP8266WiFi.h         https://github.com/esp8266/Arduino                      GPL licence
 - ESPAsyncTCP.h
 - ESPAsyncWebServer.h
 - RTClib.h              https://github.com/adafruit/RTClib                      MIT licence

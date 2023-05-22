@@ -9,7 +9,10 @@ TrakBox is a data acquisition system built from inexpensive hobbyist level devel
     TinyGPSPlus is used for GPS data. All the examples set the baud rate at 4800.
     I found none of the examples worked until I set the baud rate at 9600.
     
-    In Adafruit BME280 examples, I found I had to set the address like so: status = bme.begin(0x76)
+    In Adafruit BME280 examples,the bme address defaulted to 0x77. I found most the
+    chips I tried had an address of 0x76. I had to set the address like so: status = bme.begin(0x76)
+    
+    The chronodot needs a 5k resistor on the SDA and SDL lines or it will not run
 
 ## Parts List
 - ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 
@@ -18,7 +21,7 @@ TrakBox is a data acquisition system built from inexpensive hobbyist level devel
 - BME280 Digital Temperature Humidity Sensor
 - Adafruit MicroSD Card Breakout Board
 - 0.96 Inch Blue Yellow OLED Display Module I2C
-- ChrnoDot V2 with DS3231 and battery backup
+- ChronoDot V2 with DS3231 and battery backup
 
 Basic wiring diagram below
 ![alt text](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
@@ -30,3 +33,22 @@ Adds a hardware real time clock. The popular chronodot V2 is utilized. It has a 
 Adds the ability to write the data to a microSD card. It connects to the internet using a hotspot on a cell phone and can display a speedometer on the connected phone using a asynchronous web server
 ### Version 001
 First working version. All sensors running with no ability to record data
+
+## Libraries Used
+- Wire.h
+- Adafruit_GFX.h
+- Adafruit_SSD1306.h
+- Adafruit_Sensor.h
+- Adafruit_BME280.h
+- TinyGPSPlus.h
+- SoftwareSerial.h
+- Adafruit_BNO055.h
+- utility/imumaths.h
+- SdFat.h
+- Arduino.h
+- ESP8266WiFi.h
+- ESPAsyncTCP.h
+- ESPAsyncWebServer.h
+- RTClib.h
+- time.h
+

@@ -1,3 +1,7 @@
+## ESP8266 NodeMCU
+  Model: ESP8266 NodeMCU CP2102 ESP-12E Development Board
+      
+
 ## BNO055
 
   Model: Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055

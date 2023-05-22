@@ -36,19 +36,19 @@ First working version. All sensors running with no ability to record data
 
 ## Libraries Used
 - Wire.h
-- Adafruit_GFX.h
-- Adafruit_SSD1306.h
-- Adafruit_Sensor.h
-- Adafruit_BME280.h
-- TinyGPSPlus.h
+- Adafruit_GFX.h        https://github.com/adafruit/Adafruit-GFX-Library        BSD licence
+- Adafruit_SSD1306.h    https://github.com/adafruit/Adafruit_SSD1306            BSD licence
+- Adafruit_Sensor.h     https://github.com/adafruit/Adafruit_Sensor             BSD licence
+- Adafruit_BME280.h     https://github.com/adafruit/Adafruit_BME280_Library     BSD license
+- TinyGPSPlus.h         https://github.com/mikalhart/TinyGPSPlus                GNU License
 - SoftwareSerial.h
-- Adafruit_BNO055.h
+- Adafruit_BNO055.h     https://github.com/adafruit/Adafruit_BNO055             BSD license
 - utility/imumaths.h
-- SdFat.h
-- Arduino.h
+- SdFat.h               https://github.com/greiman/SdFat                        MIT licence
+- Arduino.h             https://github.com/esp8266/Arduino                      GNU licence
 - ESP8266WiFi.h
 - ESPAsyncTCP.h
 - ESPAsyncWebServer.h
-- RTClib.h
-- time.h
+- RTClib.h              https://github.com/adafruit/RTClib                      MIT licence
+- time.h        
 

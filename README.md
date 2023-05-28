@@ -66,3 +66,11 @@ This beautiful schematic was created using a free account on https://easyeda.com
 - RTClib.h              https://github.com/adafruit/RTClib                      MIT licence
 - time.h        
 
+## Getting Started
+
+1. Assemble the circuit as shown in the schematic
+2. Install Aduino IDE https://www.arduino.cc/en/Guide
+3. Choose a version from the snapshots folder and copy/paste in the editor
+4. Upload the firmware
+5. Place sd chip in slot, plug into power source and start recording data!
+

@@ -32,7 +32,7 @@ Original prototype pictured below
 - ChronoDot V2 with DS3231 and battery backup
 
 Basic wiring diagram below
-![alt text](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
+![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
 
 ## Version History
 ### Version 006
@@ -41,6 +41,8 @@ Adds a hardware real time clock. The popular chronodot V2 is utilized. It has a 
 Adds the ability to write the data to a microSD card. It connects to the internet using a hotspot on a cell phone and can display a speedometer on the connected phone using a asynchronous web server
 ### Version 001
 First working version. All sensors running with no ability to record data
+
+![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/EasyEDA_Schematic_RacTrakBox.png)
 
 ## Libraries Used
 - Wire.h                https://github.com/esp8266/Arduino                      GPL licence

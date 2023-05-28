@@ -68,9 +68,9 @@ This beautiful schematic was created using a free account on https://easyeda.com
 
 ## Getting Started
 
-1. Assemble the circuit as shown in the schematic
-2. Install Aduino IDE https://www.arduino.cc/en/Guide
-3. Choose a version from the snapshots folder and copy/paste in the editor
+1. Assemble the circuit as shown in the [schematic](https://github.com/MyRaceData/TRAKBOX/edit/main/README.md#schematic)
+2. Install [Aduino IDE](https://www.arduino.cc/en/Guide)
+3. Choose a version from the [snapshots](https://github.com/MyRaceData/TRAKBOX/tree/main/snapshots) folder and copy/paste in the editor
 4. Upload the firmware
 5. Place sd chip in slot, plug into power source and start recording data!
 

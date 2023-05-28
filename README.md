@@ -42,7 +42,11 @@ Adds the ability to write the data to a microSD card. It connects to the interne
 ### Version 001
 First working version. All sensors running with no ability to record data
 
-![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/EasyEDA_Schematic_RacTrakBox.png)
+## Schematic
+
+This beautiful schematic was created using a free account on https://easyeda.com/
+
+![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/EasyEDA_Schematic_RacTrakBox.png)
 
 ## Libraries Used
 - Wire.h                https://github.com/esp8266/Arduino                      GPL licence

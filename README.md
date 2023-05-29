@@ -24,7 +24,7 @@ Original prototype pictured below
     
     When using the ESP8266 LittleFS Filesystem Uploader Plugin, place all the files
     you would like tranfered in a folder called data in the same folder as your sketch
-    [installation and usage](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin)
+    ![installation and usage](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin)
     If the upload fails, shut down the serial monitor
 
 ## Parts List

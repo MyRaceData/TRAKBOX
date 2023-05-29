@@ -14,13 +14,18 @@ Original prototype pictured below
     
  Notes:
  
-    TinyGPSPlus is used for GPS data. All the examples set the baud rate at 4800.
+    TinyGPSPlus is the library used for GPS data. All the examples set the baud rate at 4800.
     I found none of the examples worked until I set the baud rate at 9600.
     
     In Adafruit BME280 examples,the bme address defaulted to 0x77. I found most the
     chips I tried had an address of 0x76. I had to set the address like so: bme.begin(0x76)
     
     The chronodot needs a 5k resistor on the SDA and SDL lines or it will not run
+    
+    When using the ESP8266 LittleFS Filesystem Uploader Plugin, place all the files
+    you would like tranfered in a folder called data in the same folder as your sketch
+    If the upload fails, shut down arduino, reopen your sketch in arduino then attempt 
+    the upload before doing anything else
 
 ## Parts List
 - ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 
@@ -35,6 +40,9 @@ Basic wiring diagram below
 ![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
 
 ## Version History
+### Version 007
+This version provides much more robust hardware error checking. The firmware will run even with none of the sensors attached allowing testing of just the microcontroller or any combination of sensors. The debug messages are also improved. Other portions of the firmware were refactored.
+This version also introduces the use of storing the web page files for the dash display in flash memory. Flash memory is used because this allows the html to be removed from the instruction portion of non-volitile RAM used by the firmware. It also allows the web page files to be edited more easily. This feature uses the littleFS library to connect to the flash memory and the ESP8266 LittleFS Filesystem Uploader Plugin [found here](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin) to upload the web files to flash memory.
 ### Version 006
 Adds a hardware real time clock. The popular chronodot V2 is utilized. It has a DS3231 chip. The RTC sinks with an NTP server during setup. This version waits until a wifi connection to the hotspot is established before continuing and displays a warning on the OLED display until a connection is made. This version only logs data to the sd card if moving over two MPH. The dash display has been enhanced with a 24 hour clock and latitude/ longitude displays. 
 ### Version 005

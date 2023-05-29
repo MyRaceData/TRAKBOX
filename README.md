@@ -24,8 +24,8 @@ Original prototype pictured below
     
     When using the ESP8266 LittleFS Filesystem Uploader Plugin, place all the files
     you would like tranfered in a folder called data in the same folder as your sketch
-    If the upload fails, shut down arduino, reopen your sketch in arduino then attempt 
-    the upload before doing anything else
+    [installation and usage](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin)
+    If the upload fails, shut down the serial monitor
 
 ## Parts List
 - ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 
@@ -54,7 +54,7 @@ First working version. All sensors running with no ability to record data
 
 This beautiful schematic was created using a free account on https://easyeda.com/
 
-![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/EasyEDA_Schematic_RacTrakBox.png)
+![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/EasyEDA_Schematic2_RacTrakBox.png)
 
 ## Libraries Used
 - Wire.h                https://github.com/esp8266/Arduino                      GPL licence

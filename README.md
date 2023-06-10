@@ -31,6 +31,35 @@ Original prototype pictured below
     Various IMUs are being tested
     Adafruit TDK InvenSense ICM-20948 9-DoF IMU has an I2c address of 0x69 This address must be
     changed for most example code to work
+    waveshare MPU9255 obsolete
+    Waveshare MPU9250
+    Later versions have ICM20948 on amazon $33.99 (June 2023)
+    this chip is considered an upgrade to the MPU92XX above
+
+    MPU9250 are also sold by name GY-91 which includes a 9250 and a BMP280 barometric pressure sensor
+    GY-9250    HiLetgo (and other brands) on amazon 14.99 (June 2023)
+
+    InvenSense TDK ICM20948     adafruit breakout from Mouser $14.95 (STEMMA QT / Qwiic version)
+    this chip has a I2c address of 0x69
+
+    To use sparkfun library
+    * ** Important note: by default the DMP functionality is disabled in the library
+    * ** as the DMP firmware takes up 14301 Bytes of program memory.
+    * ** To use the DMP, you will need to:
+    * ** Edit ICM_20948_C.h
+    * ** Uncomment line 29: #define ICM_20948_USE_DMP
+    * ** Save changes
+    * ** you can find ICM_20948_C.h in:
+    * ** /Home/Andy/Arduino/libraries/SparkFun_ICM-20948_ArduinoLibrary/src/util
+
+    Bosch BNO-055       adafruit breakout $34.95
+
+    DS3231 For PI notes
+    Pin 1 (square) = 5V or 3.3V "+"
+    Pin 2 = SDA "D" is data
+    Pin 3 = SCL "C" is clock
+    Pin 4 = not connected "NC" is Not Connected
+    Pin 5 = GND "-" is GND
 
 ## Parts List
 - ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 

@@ -26,6 +26,11 @@ Original prototype pictured below
     you would like tranfered in a folder called data in the same folder as your sketch
     for installation and usage https://github.com/earlephilhower/arduino-esp8266littlefs-plugin
     If the upload fails, shut down the serial monitor
+    
+    IMU notes
+    Various IMUs are being tested
+    Adafruit TDK InvenSense ICM-20948 9-DoF IMU has an I2c address of 0x69 This address must be
+    changed for most example code to work
 
 ## Parts List
 - ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 

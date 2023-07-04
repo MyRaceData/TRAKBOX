@@ -9,7 +9,7 @@ Original prototype pictured below
 ![prototype](https://github.com/MyRaceData/TRAKBOX/blob/main/prototype.JPG)
 
 ### In Depth
- The original prototype (pictured above) was built on a hobbist breadboard. It was powered by a cell phone charging battery (brick) making it completely stand alone with no external inputs. The breadboard was stuck to the cell phone battery with the adhesive backing on the breadboard. Many different microcontrollers could be used to assemble the unit. The microcontroller used for the prototype was a LoLin style NodeMCU type esp8266. The inertial measurement unit used on the prototype was the Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout. It has a 3 axis accelerometer, a 3 axis Gyroscope, a 3 axis Magnetometer and an onboard co-processor to fuse the sensor data. This IMU can output data in the form of Euler angles and Quaterion. The microSD card module is used to write the output from the sensors to a comma delimited text file which can be import into a speadsheet for viewing, analysis and visualizaion. The real time clock has a battery backup and syncs with a NTP server on start up. Because TrakBox writes over 90 file entries a second at full speed, milliseconds provided by the microcontroller crystal are also logged because the GPS and RTC only have one second resolution. The OLED display is attached to the unit to provide visual confirmation of proper operation. An asynchronous web server was chosen to provide the dash display feature to keep main loop speed maximized while recording data.
+ The original prototype (pictured above) was built on a hobbist breadboard. It was powered by a cell phone charging battery (brick) making it completely stand alone with no external inputs. The breadboard was stuck to the cell phone battery with the adhesive backing on the breadboard. Many different microcontrollers could be used to assemble the unit. The microcontroller used for the prototype was a LoLin style NodeMCU type esp8266. The inertial measurement unit used on the prototype was the Adafruit BNO055 9-DOF Absolute Orientation IMU Fusion Breakout. It has a 3 axis accelerometer, a 3 axis Gyroscope, a 3 axis Magnetometer and an onboard co-processor to fuse the sensor data. This IMU can output data in the form of Euler angles and Quaterion. The microSD card module is used to write the output from the sensors to a comma delimited text file which can be import into a speadsheet for viewing, analysis and visualizaion. The real time clock has a battery backup and syncs with a NTP server on start up. Because TrakBox writes over 90 file entries a second at full speed, milliseconds provided by the microcontroller crystal are also logged because the GPS and RTC only have one second resolution. The OLED display is attached to the unit to provide visual confirmation of proper operation. An asynchronous web server was chosen to provide the dash display feature to keep main loop speed maximized while recording data.
     
     
  Notes:
@@ -32,20 +32,19 @@ Original prototype pictured below
     
     IMU notes
     Various IMUs are being tested
-    Adafruit TDK InvenSense ICM-20948 9-DoF IMU has an I2c address of 0x69 This address must be
-    changed for most example code to work
-    waveshare MPU9255 obsolete
-    Waveshare MPU9250
-    Later versions have ICM20948 on amazon $33.99 (June 2023)
-    this chip is considered an upgrade to the MPU92XX above
+    InvenSense TDK ICM20948     adafruit breakout from Mouser $14.95 (STEMMA QT / Qwiic version)
+    https://www.mouser.com/ProductDetail/Adafruit/4554?qs=DPoM0jnrROVsh%2FR5VsCmTg%3D%3D
+    this chip has a I2c address of 0x69
+    
+    this chip is considered an upgrade to the MPU92XX below
 
+    MPU9250 - I have not gotten good results from this chip
     MPU9250 are also sold by name GY-91 which includes a 9250 and a BMP280 barometric pressure sensor
     GY-9250    HiLetgo (and other brands) on amazon 14.99 (June 2023)
 
-    InvenSense TDK ICM20948     adafruit breakout from Mouser $14.95 (STEMMA QT / Qwiic version)
-    this chip has a I2c address of 0x69
 
-    To use sparkfun library
+
+    To use sparkfun library for ICM20948
     * ** Important note: by default the DMP functionality is disabled in the library
     * ** as the DMP firmware takes up 14301 Bytes of program memory.
     * ** To use the DMP, you will need to:
@@ -55,7 +54,7 @@ Original prototype pictured below
     * ** you can find ICM_20948_C.h in:
     * ** /Home/Andy/Arduino/libraries/SparkFun_ICM-20948_ArduinoLibrary/src/util
 
-    Bosch BNO-055       adafruit breakout $34.95
+    Bosch BNO-055       adafruit breakout $34.95 (June 2023)
 
     The DS3231 is the RTC used. A lot of the break out boards for this chip are bulky and expensive.
     One model, called the DS3231 for PI are cheap ($3 in lots of 5) and includes a battery.
@@ -69,7 +68,7 @@ Original prototype pictured below
 
 ## Parts List
 - ESP8266 CP2102 NodeMCU LUA ESP-12E WIFI Serial Wireless Module 
-- Adafruit 9-DOF Absolute Orientation IMU Fusion Breakout - BNO055 
+- Adafruit BNO055 9-DOF Absolute Orientation IMU Fusion Breakout
 - GPS Module GPS NEO-6M
 - BME280 Digital Temperature Humidity Sensor
 - Adafruit MicroSD Card Breakout Board

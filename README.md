@@ -14,6 +14,9 @@ Original prototype pictured below
     
  Notes:
  
+    Development has switch from NodeMCU LUA ESP-12E style esp8266 to Wemos D1 mini style esp8266.
+    Main reason being they are smaller - approximately 2/3rds the length.
+    
     TinyGPSPlus is the library used for GPS data. All the examples set the baud rate at 4800.
     I found none of the examples worked until I set the baud rate at 9600.
     

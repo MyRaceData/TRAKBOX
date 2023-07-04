@@ -54,7 +54,9 @@ Original prototype pictured below
 
     Bosch BNO-055       adafruit breakout $34.95
 
-    The DS3231 is the RTC used. A lot of the break out boards for this chip are bulky and expensive. One model, called the DS3231 for PI are cheap ($3 in lots of 5) and includes a battery. They are also tiny (about 1/2" square) Only problem is they have female headers which need desoldered and replaced
+    The DS3231 is the RTC used. A lot of the break out boards for this chip are bulky and expensive.
+    One model, called the DS3231 for PI are cheap ($3 in lots of 5) and includes a battery.
+    They are also tiny (about 1/2" square) Only problem is they have female headers which need desoldered and replaced
     DS3231 For PI notes
     Pin 1 (square) = 5V or 3.3V "+"
     Pin 2 = SDA "D" is data

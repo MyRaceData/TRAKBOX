@@ -34,6 +34,12 @@ Original prototype pictured below
     
     IMU notes
     Various IMUs are being tested
+    
+    Bosch BNO-055      adafruit 9-DOF Absolute Orientation Sensor breakout $34.95 (June 2023)
+    https://www.mouser.com/ProductDetail/Adafruit/2472?qs=N%2F3wi2MvZWDmk8dteqdybw%3D%3D
+    adafruit 9-DOF Absolute Orientation IMU Fusion Breakout from Mouser $29.95 (STEMMA QT / Qwiic version)
+    https://www.mouser.com/ProductDetail/Adafruit/4646?qs=W%2FMpXkg%252BdQ4Msqspav40iw%3D%3D
+    
     InvenSense TDK ICM20948     adafruit breakout from Mouser $14.95 (STEMMA QT / Qwiic version)
     https://www.mouser.com/ProductDetail/Adafruit/4554?qs=DPoM0jnrROVsh%2FR5VsCmTg%3D%3D
     this chip has a I2c address of 0x69
@@ -43,8 +49,8 @@ Original prototype pictured below
     MPU9250 - I have not gotten good results from this chip
     MPU9250 are also sold by name GY-91 which includes a 9250 and a BMP280 barometric pressure sensor
     GY-9250    HiLetgo (and other brands) on amazon 14.99 (June 2023)
-
-
+    MPU-6050 (AKA GY-521) are also being evaluated. This chip only has accel & gyro, no magnetometer
+    
 
     To use sparkfun library for ICM20948
     * ** Important note: by default the DMP functionality is disabled in the library
@@ -55,8 +61,6 @@ Original prototype pictured below
     * ** Save changes
     * ** you can find ICM_20948_C.h in:
     * ** /Home/Andy/Arduino/libraries/SparkFun_ICM-20948_ArduinoLibrary/src/util
-
-    Bosch BNO-055       adafruit breakout $34.95 (June 2023)
 
     The DS3231 is the RTC used. A lot of the break out boards for this chip are bulky and expensive.
     One model, called the DS3231 for PI are cheap ($3 in lots of 5) and includes a battery.

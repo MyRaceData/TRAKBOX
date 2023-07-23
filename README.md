@@ -49,7 +49,13 @@ Original prototype pictured below
     MPU9250 - I have not gotten good results from this chip
     MPU9250 are also sold by name GY-91 which includes a 9250 and a BMP280 barometric pressure sensor
     GY-9250    HiLetgo (and other brands) on amazon 14.99 (June 2023)
-    MPU-6050 (AKA GY-521) are also being evaluated. This chip only has accel & gyro, no magnetometer
+    
+    MPU-6050 (AKA GY-521) are also being evaluated. This chip has accel & gyro, no magnetometer
+    Library that includes DMP (digital motion processor) use https://github.com/jrowberg/i2cdevlib by Jeff Rowberg
+    Specifically this library: https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
+    to use this library you must change line #define INTERRUPT_PIN 2 to another pin
+    I used D8 on a nodemcu which is GPIO15 so change the above to: #define INTERRUPT_PIN 15
+    Also change the line: void dmpDataReady() { to: void ICACHE_RAM_ATTR dmpDataReady() {
     
 
     To use sparkfun library for ICM20948

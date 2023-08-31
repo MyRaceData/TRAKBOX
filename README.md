@@ -91,6 +91,7 @@ Basic wiring diagram below
 ![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
 
 ## Recent Updates
+8.30.23
 First PCB board sent for fabrication
 ![PCB](https://github.com/MyRaceData/TRAKBOX/blob/main/pcb8.30.23V01.png)
 made to fit this case from polycase model SN-27

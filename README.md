@@ -92,7 +92,9 @@ Basic wiring diagram below
 
 ## Recent Updates
 First PCB board sent for fabrication
-![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/pcb8.30.23V01.png)
+![PCB](https://github.com/MyRaceData/TRAKBOX/blob/main/pcb8.30.23V01.png)
+made to fit this case from polycase model SN-27
+![case](https://www.polycase.com/media/catalog/product/cache/9f7a8a0be3c261b413669c5799ea722f/s/n/sn-27_16.jpg)
 
 ## Version History
 ### Version 007

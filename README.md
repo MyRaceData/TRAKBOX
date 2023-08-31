@@ -90,6 +90,10 @@ Original prototype pictured below
 Basic wiring diagram below
 ![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
 
+## Recent Updates
+First PCB board sent for fabrication
+![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/pcb8.30.23V01.png)
+
 ## Version History
 ### Version 007
 This version provides much more robust hardware error checking. The firmware will run even with none of the sensors attached allowing testing of just the microcontroller or any combination of sensors. The debug messages are also improved. Other portions of the firmware were refactored.

@@ -22,3 +22,5 @@ Alternate chip with equal functionality could be used
 ## GPS module
 [GT-U7 GPS Module](https://www.amazon.com/Navigation-Positioning-Sensitivity-Consumption-High-Precision/dp/B08ZSMPPP6/ref=sr_1_10?crid=2DI92QFX1V7ME&keywords=GPS%2BModule%2BGPS%2BNEO-6M&qid=1693758072&s=electronics&sprefix=gps%2Bmodule%2Bgps%2Bneo-6m%2Celectronics%2C115&sr=1-10&th=1)
 (amazon 2 x $18.99 usd)
+## OLED display
+## SC card module

@@ -15,3 +15,8 @@ Mouser Electronics [bme280 order page](https://www.mouser.com/ProductDetail/Bosc
 bme280 (usd 09.03.2023) 10 x $4.07 Mouser
 ## Datasheets:
 [bme280](https://www.mouser.com/datasheet/2/783/bst_bme280_ds002-2238172.pdf)
+
+# DS3231 Real Time Clock
+Manufacturer: various
+
+Alternate chip with equal functionality could be used

@@ -112,7 +112,9 @@ First working version. All sensors running with no ability to record data
 
 This beautiful schematic was created using a free account on https://easyeda.com/
 
-![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/EasyEDA_Schematic2_RacTrakBox.png)
+Note this is the schematic for the Wemos style D1 mini V3~
+
+![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/Schematic_DiMiniTrakBox3_2023-09-11.png)
 
 ## Libraries Used
 - Wire.h                https://github.com/esp8266/Arduino                      GPL licence

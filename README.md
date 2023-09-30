@@ -114,7 +114,7 @@ This beautiful schematic was created using a free account on https://easyeda.com
 
 Note this is the schematic for the Wemos style D1 mini V3~
 
-![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/Schematic_DiMiniTrakBox3_2023-09-11.png)
+![EasyEDA Schematic](https://github.com/MyRaceData/TRAKBOX/blob/main/Schematic_DiMiniTrakBox4_2023-09-30.png)
 
 ## Libraries Used
 - Wire.h                https://github.com/esp8266/Arduino                      GPL licence

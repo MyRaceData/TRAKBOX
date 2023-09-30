@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TrakBox Dash</title>
+    <style>
+    html { font-family: sans-serif; display: inline-block; margin: 0px auto; text-align: center; background-color: black; color: green;}
+    .bigtxt { position: relative; left: 10px; font-size: 280px;}
+    .littletxt { position: relative; left: 10px; font-size: 80px;}
+    .clk { position: fixed; top: 20px; right: 20px; font-size: 60px;}
+    .ll { position: fixed; top: 40px; left: 10px; font-size: 25px;}
+    button { width: 160px; height: 40px; background-color: blue; color: white;}
+    </style>
+    <meta http-equiv="refresh" content="1">
+    </head>
+<body>
+    <span class="bigtxt">
+    %gps_speed_mph%
+    </span>
+    <span class="littletxt">
+    MPH
+    </span>
+    <span class="clk">
+    %now_hour%:%now.minute%
+    </span>
+    <br><span class="ll">Lat: %gps_lat%
+    <br>Lng: %gps_lng%
+    </span>
+    <button>SPEEDO</button>
+    <button>MAP VIEW</button>
+    <button>SKID PAD</button>
+    <button>SET UP</button>
+    <button>SETTING</button>
+    </body>
+</html>

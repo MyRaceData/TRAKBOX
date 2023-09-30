@@ -140,12 +140,13 @@ Note this is the schematic for the Wemos style D1 mini V3~
 
 1. Assemble the circuit as shown in the [schematic](https://github.com/MyRaceData/TRAKBOX/edit/main/README.md#schematic)
 2. Install [Aduino IDE](https://www.arduino.cc/en/Guide)
-3. Choose a version from the [snapshots](https://github.com/MyRaceData/TRAKBOX/tree/main/snapshots) folder and copy/paste it into the [Aduino IDE](https://www.arduino.cc/en/Guide) editor
-4. Create a hotspot on your phone for the dash display
-5. Edit the sketch to add your wifi credentials from the previous step
-6. Write the firmware to the D1 Mini
-7. Create a folder in the same folder as the firmware file - name the new folder data
-8. place the contents of in the data folder
-9. Use file upload plugin to up load web page file (contents of data file)
-10. Place sd chip in slot, plug into power source and start recording data!
+3. Install the ESP8266 LittleFS Filesystem Uploader Plugin [found here](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin)
+4. Choose a version from the [snapshots](https://github.com/MyRaceData/TRAKBOX/tree/main/snapshots) folder and copy/paste it into the [Aduino IDE](https://www.arduino.cc/en/Guide) editor
+5. Create a folder in the same folder as the firmware file - name the new folder data
+6. Place the contents of [data](https://github.com/MyRaceData/TRAKBOX/tree/main/data) in the folder from the previous step
+7. Create a hotspot on your phone for the dash display
+8. Edit the sketch to add your wifi credentials from the previous step
+9. Write the firmware to the D1 Mini using the [Aduino IDE](https://www.arduino.cc/en/Guide)
+10. Use [file upload plugin](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin) to upload the contents of the data folder
+11. Place sd chip in slot, plug into power source and start recording data!
 

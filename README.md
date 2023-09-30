@@ -33,7 +33,7 @@ Original prototype pictured below
     If the upload fails, shut down the serial monitor
     
     IMU notes
-    Various IMUs are being tested
+    Various IMUs were being tested current version uses Bosch BNO-055
     
     Bosch BNO-055      adafruit 9-DOF Absolute Orientation Sensor breakout $34.95 (June 2023)
     https://www.mouser.com/ProductDetail/Adafruit/2472?qs=N%2F3wi2MvZWDmk8dteqdybw%3D%3D
@@ -98,6 +98,8 @@ First PCB board sent for fabrication
 enclosure by Polycase model SN-27
 
 ## Version History
+### Version 009
+Version 8 is skipped. This version is the same as V7 except setup does not halt if there is no SD card
 ### Version 007
 This version provides much more robust hardware error checking. The firmware will run even with none of the sensors attached allowing testing of just the microcontroller or any combination of sensors. The debug messages are also improved. Other portions of the firmware were refactored.
 This version also introduces the use of storing the web page files for the dash display in flash memory. Flash memory is used because this allows the html to be removed from the instruction portion of non-volitile RAM used by the firmware. It also allows the web page files to be edited more easily. This feature uses the littleFS library to connect to the flash memory and the ESP8266 LittleFS Filesystem Uploader Plugin [found here](https://github.com/earlephilhower/arduino-esp8266littlefs-plugin) to upload the web files to flash memory. This version waits until a wifi connection to the hotspot is established before continuing and displays a warning on the OLED display until a connection is made. This version only logs data to the sd card if moving over two MPH.
@@ -138,9 +140,12 @@ Note this is the schematic for the Wemos style D1 mini V3~
 
 1. Assemble the circuit as shown in the [schematic](https://github.com/MyRaceData/TRAKBOX/edit/main/README.md#schematic)
 2. Install [Aduino IDE](https://www.arduino.cc/en/Guide)
-3. Choose a version from the [snapshots](https://github.com/MyRaceData/TRAKBOX/tree/main/snapshots) folder and copy/paste in the editor
+3. Choose a version from the [snapshots](https://github.com/MyRaceData/TRAKBOX/tree/main/snapshots) folder and copy/paste it into the [Aduino IDE](https://www.arduino.cc/en/Guide) editor
 4. Create a hotspot on your phone for the dash display
-5. Edit the sketch to add wifi credentials
-6. Upload the firmware
-7. Place sd chip in slot, plug into power source and start recording data!
+5. Edit the sketch to add your wifi credentials from the previous step
+6. Write the firmware to the D1 Mini
+7. Create a folder in the same folder as the firmware file - name the new folder data
+8. place the contents of in the data folder
+9. Use file upload plugin to up load web page file (contents of data file)
+10. Place sd chip in slot, plug into power source and start recording data!
 

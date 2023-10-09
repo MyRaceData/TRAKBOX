@@ -4,13 +4,15 @@ Racing Data Acquisition system
 ### Brief
 TrakBox is a data acquisition system built from inexpensive hobbyist level development boards. The TrakBox is rigidly mounted inside a competition vehicle and used to evaluate the performance of the vehicle. The system runs on a microcontroller. The system includes a GPS sensor, an inertial measurement unit and an environmental sensor. There is also a real time clock, a small OLED display and a microSD card module. TrakBox includes a web server that can run a dash display on a cell phone.
 
-Original prototype pictured below
-
-![prototype](https://github.com/MyRaceData/TRAKBOX/blob/main/prototype.JPG)
+![prototype](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxprod-proto.jpg)
 
 ### In Depth
  The Race TrakBox is a data acquisition system built for racing from inexpensive hobbyist level development boards. It is designed to be simple and cheap to build. If you can solder, you can build one yourself. It uses an IMU (Inertial Measurement Unit), which is basically a sensor used for discerning movement. It also has a GPS module which can locate the vehicle accurately anywhere on the planet as well as discern speed and bearing/heading once in motion. The IMU is the real rock star here though. By measuring lateral g-forces, it can be used to gauge outright acceleration, braking and cornering performance. Gyroscopic forces can be used to measure chassis and suspension performance. Most of the rest of the componets are included to support this two modules. There is an environmental sensor providing ambient air temperature, humidity and atmospheric air presure, all of which can be very useful for tuning purposes. There is also a real time clock which provides extremely accurate times and dates for record keeping. An on-board micro SD card module allows all the data to be recorded to disc for later analysis.
- 
+
+ Original prototype pictured below
+
+![prototype](https://github.com/MyRaceData/TRAKBOX/blob/main/prototype.JPG)
+
  The original prototype (pictured above) was built on a hobbist breadboard. It was powered by a cell phone charging bank (brick) making it completely stand alone with no external inputs. The breadboard was stuck to the charging bank with the adhesive backing on the breadboard. Many different microcontrollers could be used to assemble the unit. The microcontroller used for the prototype was a LoLin style NodeMCU type esp8266. The inertial measurement unit used on the prototype was the Adafruit BNO055 9-DOF Absolute Orientation IMU Fusion Breakout. It has a 3 axis accelerometer, a 3 axis Gyroscope, a 3 axis Magnetometer and an onboard co-processor to fuse the sensor data. This IMU can output data in the form of Euler angles and Quaterion. The microSD card module is used to write the output from the sensors to a comma delimited text file which can be import into a speadsheet for viewing, analysis and visualizaion. The real time clock has a battery backup and syncs with a NTP server on start up. Because TrakBox writes over 90 file entries a second at full speed, milliseconds provided by the microcontroller crystal are also logged because the GPS and RTC only have one second resolution. The OLED display is attached to the unit to provide visual confirmation of proper operation. An asynchronous web server was chosen to provide the dash display feature to keep main loop speed maximized while recording data.
     
     

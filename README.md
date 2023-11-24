@@ -21,21 +21,37 @@ TrakBox is a data acquisition system built from inexpensive hobbyist level devel
 millis,MM/DD/YYYY,hh:mm.ss,lat,long,gps speed,altitude,temperature,humitity,atmospheric pressure,linear accel x,y,z, orientation x,y,z
 
 Scales of the readings in the above order
+
 millis is as emitted by the crystal of the microcontroller and is not exactly accurate in milliseconds
+
 month day year per RTC
+
 hour minute second per RTC
+
 Latitude per GPS
+
 Longitude per GPS
+
 speed in MPH per GPS
+
 altitude in feet above sea level (calculated from BME180 atmospheric pressure)
+
 temperature in Celsius per BME180
+
 humitity in percent per BME180
+
 atmospheric pressure in h/PA per BME180
+
 linear acceleration in feet per second on the X axis per BNO055
+
 linear acceleration in feet per second on the Y axis per BNO055
+
 linear acceleration in feet per second on the Z axis per BNO055
+
 orientation in Euler angles on the X axis (pitch) per BNO055
+
 orientation in Euler angles on the Y axis (roll) per BNO055
+
 orientation in Euler angles on the Z axis (yaw) per BNO055
     
     

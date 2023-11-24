@@ -14,6 +14,29 @@ TrakBox is a data acquisition system built from inexpensive hobbyist level devel
 ![prototype](https://github.com/MyRaceData/TRAKBOX/blob/main/prototype.JPG)
 
  The original prototype (pictured above) was built on a hobbist breadboard. It was powered by a cell phone charging bank (brick) making it completely stand alone with no external inputs. The breadboard was stuck to the charging bank with the adhesive backing on the breadboard. Many different microcontrollers could be used to assemble the unit. The microcontroller used for the prototype was a LoLin style NodeMCU type esp8266. The inertial measurement unit used on the prototype was the Adafruit BNO055 9-DOF Absolute Orientation IMU Fusion Breakout. It has a 3 axis accelerometer, a 3 axis Gyroscope, a 3 axis Magnetometer and an onboard co-processor to fuse the sensor data. This IMU can output data in the form of Euler angles and Quaterion. The microSD card module is used to write the output from the sensors to a comma delimited text file which can be import into a speadsheet for viewing, analysis and visualizaion. The real time clock has a battery backup and syncs with a NTP server on start up. Because TrakBox writes over 90 file entries a second at full speed, milliseconds provided by the microcontroller crystal are also logged because the GPS and RTC only have one second resolution. The OLED display is attached to the unit to provide visual confirmation of proper operation. An asynchronous web server was chosen to provide the dash display feature to keep main loop speed maximized while recording data.
+
+ As of Version 011 the file format has changed
+ The file output is as follows:
+
+millis,MM/DD/YYYY,hh:mm.ss,lat,long,gps speed,altitude,temperature,humitity,atmospheric pressure,linear accel x,y,z, orientation x,y,z
+
+Scales of the readings in the above order
+millis is as emitted by the crystal of the microcontroller and is not exactly accurate in milliseconds
+month day year per RTC
+hour minute second per RTC
+Latitude per GPS
+Longitude per GPS
+speed in MPH per GPS
+altitude in feet above sea level (calculated from BME180 atmospheric pressure)
+temperature in Celsius per BME180
+humitity in percent per BME180
+atmospheric pressure in h/PA per BME180
+linear acceleration in feet per second on the X axis per BNO055
+linear acceleration in feet per second on the Y axis per BNO055
+linear acceleration in feet per second on the Z axis per BNO055
+orientation in Euler angles on the X axis (pitch) per BNO055
+orientation in Euler angles on the Y axis (roll) per BNO055
+orientation in Euler angles on the Z axis (yaw) per BNO055
     
     
  Notes:

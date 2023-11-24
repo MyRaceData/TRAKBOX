@@ -100,6 +100,9 @@ First PCB board sent for fabrication
 enclosure by Polycase model SN-27
 
 ## Version History
+### Version 011
+This version changes the file format and file extension. Version 10 is the same as this version without the file format change which included a bugfix 
+in v9 when no SD card was inserted. 
 ### Version 009
 Version 8 is skipped. This version is the same as V7 except setup does not halt if there is no SD card
 ### Version 007

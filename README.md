@@ -132,13 +132,15 @@ Basic wiring diagram below
 ![Wiring](https://github.com/MyRaceData/TRAKBOX/blob/main/trakboxwiring.png)
 
 ## Recent Updates
+12.27.23
+The first pre-production units are ready for testing. 
+
 8.30.23
-
-First PCB board sent for fabrication
-
-enclosure by Polycase model SN-27
+First PCB board sent for fabrication. The enclosure used is by Polycase model SN-27
 
 ## Version History
+### Version 012
+This version does not halt startup if no wifi connection can be made. Allowing startup and use without a wifi connection will allow data to be recorded normally. The phone dash display will not function without a wifi connection. The realtime clock will also not be able to be synced to a time server. The recorded times may not be accurate and should be verified. This version will be used on the first pre-production prototypes
 ### Version 011
 This version changes the file format and file extension. Version 10 is the same as this version without the file format change which included a bugfix 
 in v9 when no SD card was inserted. 

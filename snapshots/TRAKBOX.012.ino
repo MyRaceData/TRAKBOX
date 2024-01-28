@@ -20,6 +20,8 @@
    TrakBox V1.012 13th version
    Andrew Rowe Nov 24 2023
 
+   This version is being installed on the pre-production prototypes as of January 2024
+
    This version does not halt startup if no wifi connection can be made.
    Allowing startup and use without a wifi connection will allow data to
    be recorded normally. The realtime clock will not be synced to a time server.
@@ -28,7 +30,7 @@
    This version uses the file extension .csv
    This version only records the actual data values with no scale
    All additional scale information is not written to file such as MPH
-   For file output format see Write to SD card notes: below
+   For file output format see Write to SD card notes below
 
    The web page used for the dash display uses the template processor feature of the
    Arduino async web server to insert live data into the web page. More info here
@@ -39,12 +41,15 @@
    find the plugin and instalation instruction here:
    https://github.com/earlephilhower/arduino-esp8266littlefs-plugin
 
-   This version of the firmware no longer halts setup if there is no SD card
+   This version of the firmware does not halt setup if there is no SD card
    Start up is delayed for 30 seconds if there is no SD card inserted
    A warning is printed to the onboard OLED display 'NO SD'
+   
    This version includes a dash function that runs a speedometer on a phone
-   the web server's ip address for phone speedo displays on OLED diplay
-   This version waits for a wifi connection and puts a warning on the OLED display
+   The web server's ip address for the phone speedo displays on OLED diplay
+   This version of the firmware no longer halts setup if there is no WIFI connection
+   The phone speedometer display will not work without a WIFI connection
+   The realtime clock will not sync with an NTP server without a WIFI connection
 
    Write to SD card notes:
    This version writes data to a file on the root of the SD card

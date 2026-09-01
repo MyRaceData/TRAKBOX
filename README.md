@@ -42,17 +42,17 @@ humitity in percent per BME180
 
 atmospheric pressure in h/PA per BME180
 
-linear acceleration in feet per second on the X axis per BNO055
+linear acceleration in meters per second squared (m/s^2) on the X axis per BNO055
 
-linear acceleration in feet per second on the Y axis per BNO055
+linear acceleration in meters per second squared (m/s^2) on the Y axis per BNO055
 
-linear acceleration in feet per second on the Z axis per BNO055
+linear acceleration in meters per second squared (m/s^2) on the Z axis per BNO055
 
-orientation in Euler angles on the X axis (pitch) per BNO055
+angular velocity in Radians per Second (rad/s) on the X axis per BNO055
 
-orientation in Euler angles on the Y axis (roll) per BNO055
+angular velocity in Radians per Second (rad/s) on the Y axis per BNO055
 
-orientation in Euler angles on the Z axis (yaw) per BNO055
+angular velocity in Radians per Second (rad/s) on the Z axis per BNO055
     
     
  Notes:

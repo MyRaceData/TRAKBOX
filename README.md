@@ -139,6 +139,9 @@ The first pre-production units are ready for testing.
 First PCB board sent for fabrication. The enclosure used is by Polycase model SN-27
 
 ## Version History
+### Version 013
+Version 13 was a small refactoring to optimize logging speed. The phone dash web page file (index.htm) needs replaced to run this version. The phone dash
+now only displays speed in MPH. 
 ### Version 012
 This version does not halt startup if no wifi connection can be made. Allowing startup and use without a wifi connection will allow data to be recorded normally. The phone dash display will not function without a wifi connection. The realtime clock will also not be able to be synced to a time server. The recorded times may not be accurate and should be verified. This version will be used on the first pre-production prototypes
 ### Version 011

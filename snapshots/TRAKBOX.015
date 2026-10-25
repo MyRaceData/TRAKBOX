@@ -1,0 +1,220 @@
+/*
+Racing TrakBox firmware version 0.15
+October 25 2026
+https://github.com/MyRaceData/TRAKBOX/blob/main/LICENSE
+Platfrom: esp8266 D1 mini
+file output:
+millis,MM/DD/YYYY,HH:MM:SS,Latitude,Longitude,MPH,Altitude,Temp,Humid,Pres,Accel X,Accel Y, Accel Z,Gyro X,Gyro Y,Gyro Z,Heading,Quat W, Quat X, Quat Y , Quat Z
+*/
+#include <SPI.h>
+#include <SdFat.h>
+#include <Wire.h>
+#include <SoftwareSerial.h>
+#include <TinyGPSPlus.h>
+#include <Adafruit_Sensor.h>
+#include <Adafruit_BNO055.h>
+#include <Adafruit_BME280.h>
+#include <utility/imumaths.h>
+#include "SSD1306Ascii.h"
+#include "SSD1306AsciiWire.h"
+
+#define SEALEVELPRESSURE_HPA (1013.25) 
+#define SCREEN_ADDRESS 0x3C
+
+const int sd_chipSelect = D8;   
+const int gps_rxPin = D3;       
+const int gps_txPin = D4;    
+
+// Update Rate Packet to 5 Hz
+const uint8_t UBX_CFG_RATE_5HZ[] PROGMEM = {
+  0xB5, 0x62, 0x06, 0x08, 0x06, 0x00, 0xC8, 0x00, 0x01, 0x00, 0x01, 0x00, 0xDE, 0x6A
+};
+
+// Proprietary NMEA commands to drop unneeded sentences
+const char* const STRIP_SENTENCES[] = {
+  "$PUBX,40,GLL,0,0,0,0*5C\r\n", // Disable Lat/Lng details (redundant)
+  "$PUBX,40,GSA,0,0,0,0*4E\r\n", // Disable Satellite DOP Active matrix (heavy)
+  "$PUBX,40,GSV,0,0,0,0*59\r\n", // Disable Satellites in View detailed arrays (heaviest!)
+  "$PUBX,40,VTG,0,0,0,0*5E\r\n"  // Disable Vector Track/Speed (redundant, RMC does this)
+};
+
+SoftwareSerial gpsSerial(gps_rxPin, gps_txPin);
+TinyGPSPlus gps;
+Adafruit_BNO055 bno = Adafruit_BNO055(55, 0x28);
+Adafruit_BME280 bme;
+SdFs sd;
+FsFile myDataFile;
+SSD1306AsciiWire oled;
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial) delay(100);  // wait for serial port
+  delay(5000);
+  Serial.println("");
+  Serial.println("TrakBox V0.15 starting"); Serial.println("");
+  
+  Wire.begin(D2, D1); 
+  Wire.setClock(400000);
+  Serial.println("Overclocking I2C to 400kHz fast mode");
+  oled.begin(&Adafruit128x64, SCREEN_ADDRESS);
+  oled.setFont(Arial_bold_14);
+  oled.clear();
+  oled.set1X();
+  oled.println("Starting");
+  oled.set2X();
+  oled.println("TrakBox");
+
+  gpsSerial.begin(9600);
+  delay(500);
+
+  // Strip unnecessary sentences to free up serial line bandwidth
+  Serial.println(F("Stripping unneeded NMEA sentences..."));
+  for (uint8_t i = 0; i < 4; i++) {
+    gpsSerial.print(STRIP_SENTENCES[i]);
+    delay(50); // Quick pause to let the NEO-6M digest the command
+  }
+  // Command the internal engine to update calculations at 5 Hz
+  Serial.println(F("Setting GPS engine calculations to 5 Hz..."));
+  sendUBX(UBX_CFG_RATE_5HZ, sizeof(UBX_CFG_RATE_5HZ));
+  delay(200);
+  Serial.println(F("GPS configuration complete! 5 Hz GPS stream at 9600 baud."));   
+
+  if (!bno.begin()) {
+    Serial.println("BNO055 sensor not detected ... Check your wiring or I2C ADDR!");
+  } else {
+    Serial.println("BNO055 detected and running");
+  }  
+  bno.setExtCrystalUse(true);
+  delay(50);
+  bno.setMode(OPERATION_MODE_IMUPLUS); 
+  delay(50);
+  Serial.println("BNO055 set to IMU mode");
+
+  if (!bme.begin(0x76)) {
+    Serial.println("BME280 sensor not detected ... Check your wiring or I2C ADDR!");
+  } else {
+    Serial.println("BME280 detected and running");
+  }
+
+  Serial.print("Initializing SD card...");
+  if (!sd.begin(sd_chipSelect, SD_SCK_MHZ(16))) { // 16MHz SPI speed
+    Serial.println("Card initialization failed!");
+    sd.initErrorPrint(&Serial); // Prints the exact reason why sd failed
+  oled.clear();
+  oled.set1X();
+  oled.println("Warning!!!");
+  oled.set2X();
+  oled.println("NO SD");
+    while (1) delay(100); 
+  }
+  Serial.println("SD card initialized successfully.");
+  oled.clear();
+  oled.set1X();
+  oled.println("TrakBox");
+  oled.setCursor(0, 2); 
+  oled.clearToEOL(); 
+  oled.print("Speed: ");
+  oled.setCursor(0, 4);
+  oled.set2X();
+  oled.clearToEOL(); 
+  oled.println("0");
+}
+
+unsigned long lastDisplayUpdate = 0;
+const unsigned long displayIntervalMs = 1000;
+
+void loop() {
+    while (gpsSerial.available() > 0) {
+        gps.encode(gpsSerial.read());
+      }
+  writeSensorDataToCSV();
+  unsigned long currentMillis = millis();
+  if (currentMillis - lastDisplayUpdate >= displayIntervalMs) {
+    lastDisplayUpdate = currentMillis;
+    oled.setCursor(0, 4);    
+    oled.clearToEOL();      
+    if (gps.speed.isValid()) {
+      oled.print(gps.speed.mph(), 1);      
+    } else {
+      oled.print("No Fix...");
+    }
+  }  
+}
+
+void writeSensorDataToCSV() {
+  double s = gps.speed.mph();
+  if (s < 5) {
+    Serial.print("Not logging --- ");
+    Serial.print("GPS Time: ");
+    Serial.println(gps.time.value());
+    return;
+  }
+  imu::Quaternion quat = bno.getQuat();
+  imu::Vector<3> linearAccel = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
+  imu::Vector<3> gyroData = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
+  // Write data file
+  if (myDataFile.open("trakbox.csv", O_WRONLY | O_CREAT | O_APPEND)) {    
+    myDataFile.print(millis());
+    myDataFile.print(",");
+    if (gps.date.isValid()) {
+      myDataFile.print(gps.date.month());
+      myDataFile.print("/");
+      myDataFile.print(gps.date.day());
+      myDataFile.print("/");
+      myDataFile.print(gps.date.year());
+    }
+    myDataFile.print(",");
+    if (gps.time.isValid()) {
+      // Handle your time zone offset hours (-5 for EST) cleanly on the raw integers
+      int localHour = gps.time.hour() - 5;
+      if (localHour < 0) localHour += 24; // Simple circular wrap-around handling
+      
+      myDataFile.print(localHour);
+      myDataFile.print(":");
+      if (gps.time.minute() < 10) myDataFile.print("0"); // Leading zero padding
+      myDataFile.print(gps.time.minute());
+      myDataFile.print(":");
+      if (gps.time.second() < 10) myDataFile.print("0"); // Leading zero padding
+      myDataFile.print(gps.time.second());
+    }
+    myDataFile.print(",");
+    if (gps.location.isValid()) {
+      myDataFile.print(gps.location.lat(), 6);
+      myDataFile.print(",");
+      myDataFile.print(gps.location.lng(), 6);
+      myDataFile.print(",");
+      myDataFile.print(gps.speed.mph(), 1);
+      myDataFile.print(",");
+      myDataFile.print(gps.altitude.feet(), 1);
+      myDataFile.print(",");
+    } else {
+      myDataFile.print(",,,,"); // Drop empty commas if no satellite lock yet
+    }
+    myDataFile.print(bme.readTemperature());
+    myDataFile.print(",");
+    myDataFile.print(bme.readHumidity());
+    myDataFile.print(",");
+    myDataFile.print(bme.readPressure() / 100.0F);
+    myDataFile.print(",");    
+    myDataFile.print(linearAccel.x(), 2); myDataFile.print(",");
+    myDataFile.print(linearAccel.y(), 2); myDataFile.print(",");
+    myDataFile.print(linearAccel.z(), 2); myDataFile.print(",");    
+    myDataFile.print(gyroData.x(), 2); myDataFile.print(",");
+    myDataFile.print(gyroData.y(), 2); myDataFile.print(",");
+    myDataFile.print(gyroData.z(), 2); myDataFile.print(",");
+    myDataFile.print(gps.course.deg()); myDataFile.print(",");
+    myDataFile.print(quat.w()); myDataFile.print(",");    
+    myDataFile.print(quat.x()); myDataFile.print(",");
+    myDataFile.print(quat.y()); myDataFile.print(",");
+    myDataFile.println(quat.z());
+    myDataFile.close(); 
+  }  
+  yield(); 
+}
+
+void sendUBX(const uint8_t *packet, uint8_t len) {
+  for (uint8_t i = 0; i < len; i++) {
+    // Correct way to read flash memory on ESP8266
+    gpsSerial.write(pgm_read_byte(packet + i)); 
+  }
+}
